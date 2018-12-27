@@ -1,0 +1,228 @@
+
+Thread 9 (Thread 0x7f69dbfff700 (LWP 11776)):
+#0  0x00007f69de15c592 in pthread_cond_wait@@GLIBC_2.3.2 () from /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libpthread.so.0
+#1  0x000055b4e84c3028 in parking_lot_core::thread_parker::ThreadParker::park (self=<optimized out>)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/thread_parker/unix.rs:95
+#2  parking_lot_core::parking_lot::park_internal (key=<optimized out>, validate=..., before_sleep=&mut FnMut<()> = {...}, timed_out=&mut FnMut<(usize, bool)> = {...}, park_token=ParkToken = {...}, 
+    timeout=Python Exception <type 'exceptions.TypeError'> Could not convert Python object: None.: 
+...) at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/parking_lot.rs:597
+#3  0x000055b4e84c216f in parking_lot_core::parking_lot::park (validate=..., timed_out=..., park_token=ParkToken = {...}, key=<optimized out>, before_sleep=..., timeout=...)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/parking_lot.rs:542
+#4  parking_lot::raw_rwlock::RawRwLock::lock_upgradable_slow (self=<optimized out>, timeout=core::option::None)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot-0.6.4/src/raw_rwlock.rs:1108
+#5  0x000055b4e84bf9f5 in <parking_lot::raw_rwlock::RawRwLock as lock_api::rwlock::RawRwLockUpgrade>::lock_upgradable (self=<optimized out>)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot-0.6.4/src/raw_rwlock.rs:345
+#6  <lock_api::rwlock::RwLock<R, T>>::upgradable_read (self=<optimized out>) at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/lock_api-0.1.4/src/rwlock.rs:596
+#7  pl_bug::main::{{closure}} () at src/main.rs:16
+#8  std::sys_common::backtrace::__rust_begin_short_backtrace (f=...) at libstd/sys_common/backtrace.rs:136
+#9  0x000055b4e84e323a in __rust_maybe_catch_panic () at libpanic_unwind/lib.rs:102
+#10 0x000055b4e84c08bc in std::panicking::try (f=...) at libstd/panicking.rs:289
+#11 std::panic::catch_unwind (f=...) at libstd/panic.rs:392
+#12 std::thread::Builder::spawn::{{closure}} () at libstd/thread/mod.rs:408
+#13 <F as alloc::boxed::FnBox<A>>::call_box (self=0x7f69dd220140, args=<optimized out>) at liballoc/boxed.rs:672
+#14 0x000055b4e84d12ae in _$LT$alloc..boxed..Box$LT$$LP$dyn$u20$alloc..boxed..FnBox$LT$A$C$$u20$Output$u3d$R$GT$$u20$$u2b$$u20$$u27$a$RP$$GT$$u20$as$u20$core..ops..function..FnOnce$LT$A$GT$$GT$::call_once::h9d902c911a417e39 () at liballoc/boxed.rs:682
+#15 std::sys_common::thread::start_thread () at libstd/sys_common/thread.rs:24
+#16 0x000055b4e84c99b6 in std::sys::unix::thread::Thread::new::thread_start () at libstd/sys/unix/thread.rs:90
+#17 0x00007f69de1565a7 in start_thread () from /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libpthread.so.0
+#18 0x00007f69ddc7722f in clone () from /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libc.so.6
+
+Thread 8 (Thread 0x7f69dc5f9700 (LWP 11775)):
+#0  0x00007f69de15c592 in pthread_cond_wait@@GLIBC_2.3.2 () from /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libpthread.so.0
+#1  0x000055b4e84c3028 in parking_lot_core::thread_parker::ThreadParker::park (self=<optimized out>)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/thread_parker/unix.rs:95
+#2  parking_lot_core::parking_lot::park_internal (key=<optimized out>, validate=..., before_sleep=&mut FnMut<()> = {...}, timed_out=&mut FnMut<(usize, bool)> = {...}, park_token=ParkToken = {...}, 
+    timeout=Python Exception <type 'exceptions.TypeError'> Could not convert Python object: None.: 
+...) at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/parking_lot.rs:597
+#3  0x000055b4e84c2364 in parking_lot_core::parking_lot::park (key=140092645545320, validate=..., timed_out=..., park_token=ParkToken = {...}, before_sleep=..., timeout=...)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/parking_lot.rs:542
+#4  parking_lot::raw_rwlock::RawRwLock::upgrade_slow (self=<optimized out>, timeout=...) at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot-0.6.4/src/raw_rwlock.rs:1350
+#5  0x000055b4e84bfa21 in <parking_lot::raw_rwlock::RawRwLock as lock_api::rwlock::RawRwLockUpgrade>::upgrade (self=<optimized out>)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot-0.6.4/src/raw_rwlock.rs:389
+#6  <lock_api::rwlock::RwLockUpgradableReadGuard<'a, R, T>>::upgrade (s=...) at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/lock_api-0.1.4/src/rwlock.rs:1048
+#7  pl_bug::main::{{closure}} () at src/main.rs:18
+#8  std::sys_common::backtrace::__rust_begin_short_backtrace (f=...) at libstd/sys_common/backtrace.rs:136
+#9  0x000055b4e84e323a in __rust_maybe_catch_panic () at libpanic_unwind/lib.rs:102
+#10 0x000055b4e84c08bc in std::panicking::try (f=...) at libstd/panicking.rs:289
+#11 std::panic::catch_unwind (f=...) at libstd/panic.rs:392
+#12 std::thread::Builder::spawn::{{closure}} () at libstd/thread/mod.rs:408
+#13 <F as alloc::boxed::FnBox<A>>::call_box (self=0x7f69dd220120, args=<optimized out>) at liballoc/boxed.rs:672
+#14 0x000055b4e84d12ae in _$LT$alloc..boxed..Box$LT$$LP$dyn$u20$alloc..boxed..FnBox$LT$A$C$$u20$Output$u3d$R$GT$$u20$$u2b$$u20$$u27$a$RP$$GT$$u20$as$u20$core..ops..function..FnOnce$LT$A$GT$$GT$::call_once::h9d902c911a417e39 () at liballoc/boxed.rs:682
+#15 std::sys_common::thread::start_thread () at libstd/sys_common/thread.rs:24
+#16 0x000055b4e84c99b6 in std::sys::unix::thread::Thread::new::thread_start () at libstd/sys/unix/thread.rs:90
+#17 0x00007f69de1565a7 in start_thread () from /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libpthread.so.0
+#18 0x00007f69ddc7722f in clone () from /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libc.so.6
+
+Thread 7 (Thread 0x7f69dc7fa700 (LWP 11774)):
+#0  0x00007f69de15c592 in pthread_cond_wait@@GLIBC_2.3.2 () from /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libpthread.so.0
+#1  0x000055b4e84c3028 in parking_lot_core::thread_parker::ThreadParker::park (self=<optimized out>)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/thread_parker/unix.rs:95
+#2  parking_lot_core::parking_lot::park_internal (key=<optimized out>, validate=..., before_sleep=&mut FnMut<()> = {...}, timed_out=&mut FnMut<(usize, bool)> = {...}, park_token=ParkToken = {...}, 
+    timeout=Python Exception <type 'exceptions.TypeError'> Could not convert Python object: None.: 
+...) at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/parking_lot.rs:597
+#3  0x000055b4e84c216f in parking_lot_core::parking_lot::park (validate=..., timed_out=..., park_token=ParkToken = {...}, key=<optimized out>, before_sleep=..., timeout=...)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/parking_lot.rs:542
+#4  parking_lot::raw_rwlock::RawRwLock::lock_upgradable_slow (self=<optimized out>, timeout=core::option::None)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot-0.6.4/src/raw_rwlock.rs:1108
+#5  0x000055b4e84bf9f5 in <parking_lot::raw_rwlock::RawRwLock as lock_api::rwlock::RawRwLockUpgrade>::lock_upgradable (self=<optimized out>)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot-0.6.4/src/raw_rwlock.rs:345
+#6  <lock_api::rwlock::RwLock<R, T>>::upgradable_read (self=<optimized out>) at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/lock_api-0.1.4/src/rwlock.rs:596
+#7  pl_bug::main::{{closure}} () at src/main.rs:16
+#8  std::sys_common::backtrace::__rust_begin_short_backtrace (f=...) at libstd/sys_common/backtrace.rs:136
+#9  0x000055b4e84e323a in __rust_maybe_catch_panic () at libpanic_unwind/lib.rs:102
+#10 0x000055b4e84c08bc in std::panicking::try (f=...) at libstd/panicking.rs:289
+#11 std::panic::catch_unwind (f=...) at libstd/panic.rs:392
+#12 std::thread::Builder::spawn::{{closure}} () at libstd/thread/mod.rs:408
+#13 <F as alloc::boxed::FnBox<A>>::call_box (self=0x7f69dd220100, args=<optimized out>) at liballoc/boxed.rs:672
+#14 0x000055b4e84d12ae in _$LT$alloc..boxed..Box$LT$$LP$dyn$u20$alloc..boxed..FnBox$LT$A$C$$u20$Output$u3d$R$GT$$u20$$u2b$$u20$$u27$a$RP$$GT$$u20$as$u20$core..ops..function..FnOnce$LT$A$GT$$GT$::call_once::h9d902c911a417e39 () at liballoc/boxed.rs:682
+#15 std::sys_common::thread::start_thread () at libstd/sys_common/thread.rs:24
+#16 0x000055b4e84c99b6 in std::sys::unix::thread::Thread::new::thread_start () at libstd/sys/unix/thread.rs:90
+#17 0x00007f69de1565a7 in start_thread () from /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libpthread.so.0
+#18 0x00007f69ddc7722f in clone () from /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libc.so.6
+
+Thread 6 (Thread 0x7f69dc9fb700 (LWP 11773)):
+#0  0x00007f69de15c592 in pthread_cond_wait@@GLIBC_2.3.2 () from /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libpthread.so.0
+#1  0x000055b4e84c3028 in parking_lot_core::thread_parker::ThreadParker::park (self=<optimized out>)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/thread_parker/unix.rs:95
+#2  parking_lot_core::parking_lot::park_internal (key=<optimized out>, validate=..., before_sleep=&mut FnMut<()> = {...}, timed_out=&mut FnMut<(usize, bool)> = {...}, park_token=ParkToken = {...}, 
+    timeout=Python Exception <type 'exceptions.TypeError'> Could not convert Python object: None.: 
+...) at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/parking_lot.rs:597
+#3  0x000055b4e84c216f in parking_lot_core::parking_lot::park (validate=..., timed_out=..., park_token=ParkToken = {...}, key=<optimized out>, before_sleep=..., timeout=...)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/parking_lot.rs:542
+#4  parking_lot::raw_rwlock::RawRwLock::lock_upgradable_slow (self=<optimized out>, timeout=core::option::None)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot-0.6.4/src/raw_rwlock.rs:1108
+#5  0x000055b4e84bf9f5 in <parking_lot::raw_rwlock::RawRwLock as lock_api::rwlock::RawRwLockUpgrade>::lock_upgradable (self=<optimized out>)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot-0.6.4/src/raw_rwlock.rs:345
+#6  <lock_api::rwlock::RwLock<R, T>>::upgradable_read (self=<optimized out>) at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/lock_api-0.1.4/src/rwlock.rs:596
+#7  pl_bug::main::{{closure}} () at src/main.rs:16
+#8  std::sys_common::backtrace::__rust_begin_short_backtrace (f=...) at libstd/sys_common/backtrace.rs:136
+#9  0x000055b4e84e323a in __rust_maybe_catch_panic () at libpanic_unwind/lib.rs:102
+#10 0x000055b4e84c08bc in std::panicking::try (f=...) at libstd/panicking.rs:289
+#11 std::panic::catch_unwind (f=...) at libstd/panic.rs:392
+#12 std::thread::Builder::spawn::{{closure}} () at libstd/thread/mod.rs:408
+#13 <F as alloc::boxed::FnBox<A>>::call_box (self=0x7f69dd2200e0, args=<optimized out>) at liballoc/boxed.rs:672
+#14 0x000055b4e84d12ae in _$LT$alloc..boxed..Box$LT$$LP$dyn$u20$alloc..boxed..FnBox$LT$A$C$$u20$Output$u3d$R$GT$$u20$$u2b$$u20$$u27$a$RP$$GT$$u20$as$u20$core..ops..function..FnOnce$LT$A$GT$$GT$::call_once::h9d902c911a417e39 () at liballoc/boxed.rs:682
+#15 std::sys_common::thread::start_thread () at libstd/sys_common/thread.rs:24
+#16 0x000055b4e84c99b6 in std::sys::unix::thread::Thread::new::thread_start () at libstd/sys/unix/thread.rs:90
+#17 0x00007f69de1565a7 in start_thread () from /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libpthread.so.0
+#18 0x00007f69ddc7722f in clone () from /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libc.so.6
+
+Thread 5 (Thread 0x7f69dcbfc700 (LWP 11772)):
+#0  0x00007f69de15c592 in pthread_cond_wait@@GLIBC_2.3.2 () from /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libpthread.so.0
+#1  0x000055b4e84c3028 in parking_lot_core::thread_parker::ThreadParker::park (self=<optimized out>)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/thread_parker/unix.rs:95
+#2  parking_lot_core::parking_lot::park_internal (key=<optimized out>, validate=..., before_sleep=&mut FnMut<()> = {...}, timed_out=&mut FnMut<(usize, bool)> = {...}, park_token=ParkToken = {...}, 
+    timeout=Python Exception <type 'exceptions.TypeError'> Could not convert Python object: None.: 
+...) at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/parking_lot.rs:597
+#3  0x000055b4e84c216f in parking_lot_core::parking_lot::park (validate=..., timed_out=..., park_token=ParkToken = {...}, key=<optimized out>, before_sleep=..., timeout=...)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/parking_lot.rs:542
+#4  parking_lot::raw_rwlock::RawRwLock::lock_upgradable_slow (self=<optimized out>, timeout=core::option::None)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot-0.6.4/src/raw_rwlock.rs:1108
+#5  0x000055b4e84bf9f5 in <parking_lot::raw_rwlock::RawRwLock as lock_api::rwlock::RawRwLockUpgrade>::lock_upgradable (self=<optimized out>)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot-0.6.4/src/raw_rwlock.rs:345
+#6  <lock_api::rwlock::RwLock<R, T>>::upgradable_read (self=<optimized out>) at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/lock_api-0.1.4/src/rwlock.rs:596
+#7  pl_bug::main::{{closure}} () at src/main.rs:16
+#8  std::sys_common::backtrace::__rust_begin_short_backtrace (f=...) at libstd/sys_common/backtrace.rs:136
+#9  0x000055b4e84e323a in __rust_maybe_catch_panic () at libpanic_unwind/lib.rs:102
+#10 0x000055b4e84c08bc in std::panicking::try (f=...) at libstd/panicking.rs:289
+#11 std::panic::catch_unwind (f=...) at libstd/panic.rs:392
+#12 std::thread::Builder::spawn::{{closure}} () at libstd/thread/mod.rs:408
+#13 <F as alloc::boxed::FnBox<A>>::call_box (self=0x7f69dd2200c0, args=<optimized out>) at liballoc/boxed.rs:672
+#14 0x000055b4e84d12ae in _$LT$alloc..boxed..Box$LT$$LP$dyn$u20$alloc..boxed..FnBox$LT$A$C$$u20$Output$u3d$R$GT$$u20$$u2b$$u20$$u27$a$RP$$GT$$u20$as$u20$core..ops..function..FnOnce$LT$A$GT$$GT$::call_once::h9d902c911a417e39 () at liballoc/boxed.rs:682
+#15 std::sys_common::thread::start_thread () at libstd/sys_common/thread.rs:24
+#16 0x000055b4e84c99b6 in std::sys::unix::thread::Thread::new::thread_start () at libstd/sys/unix/thread.rs:90
+#17 0x00007f69de1565a7 in start_thread () from /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libpthread.so.0
+#18 0x00007f69ddc7722f in clone () from /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libc.so.6
+
+Thread 4 (Thread 0x7f69dcdfd700 (LWP 11771)):
+#0  0x00007f69de15c592 in pthread_cond_wait@@GLIBC_2.3.2 () from /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libpthread.so.0
+#1  0x000055b4e84c3028 in parking_lot_core::thread_parker::ThreadParker::park (self=<optimized out>)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/thread_parker/unix.rs:95
+#2  parking_lot_core::parking_lot::park_internal (key=<optimized out>, validate=..., before_sleep=&mut FnMut<()> = {...}, timed_out=&mut FnMut<(usize, bool)> = {...}, park_token=ParkToken = {...}, 
+    timeout=Python Exception <type 'exceptions.TypeError'> Could not convert Python object: None.: 
+...) at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/parking_lot.rs:597
+#3  0x000055b4e84c1af0 in parking_lot_core::parking_lot::park (key=140092653950316, validate=..., timed_out=..., park_token=ParkToken = {...}, before_sleep=..., timeout=...)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/parking_lot.rs:542
+#4  parking_lot::raw_rwlock::RawRwLock::lock_exclusive_slow (self=<optimized out>, timeout=...) at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot-0.6.4/src/raw_rwlock.rs:634
+#5  0x000055b4e84bfa93 in <parking_lot::raw_rwlock::RawRwLock as lock_api::rwlock::RawRwLock>::lock_exclusive (self=<optimized out>)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot-0.6.4/src/raw_rwlock.rs:59
+#6  <lock_api::rwlock::RwLock<R, T>>::write (self=0x7f69de15c5a2 <pthread_cond_wait@@GLIBC_2.3.2+290>) at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/lock_api-0.1.4/src/rwlock.rs:326
+#7  pl_bug::main::{{closure}} () at src/main.rs:22
+#8  std::sys_common::backtrace::__rust_begin_short_backtrace (f=...) at libstd/sys_common/backtrace.rs:136
+#9  0x000055b4e84e323a in __rust_maybe_catch_panic () at libpanic_unwind/lib.rs:102
+#10 0x000055b4e84c08bc in std::panicking::try (f=...) at libstd/panicking.rs:289
+#11 std::panic::catch_unwind (f=...) at libstd/panic.rs:392
+#12 std::thread::Builder::spawn::{{closure}} () at libstd/thread/mod.rs:408
+#13 <F as alloc::boxed::FnBox<A>>::call_box (self=0x7f69dd220060, args=<optimized out>) at liballoc/boxed.rs:672
+#14 0x000055b4e84d12ae in _$LT$alloc..boxed..Box$LT$$LP$dyn$u20$alloc..boxed..FnBox$LT$A$C$$u20$Output$u3d$R$GT$$u20$$u2b$$u20$$u27$a$RP$$GT$$u20$as$u20$core..ops..function..FnOnce$LT$A$GT$$GT$::call_once::h9d902c911a417e39 () at liballoc/boxed.rs:682
+#15 std::sys_common::thread::start_thread () at libstd/sys_common/thread.rs:24
+#16 0x000055b4e84c99b6 in std::sys::unix::thread::Thread::new::thread_start () at libstd/sys/unix/thread.rs:90
+#17 0x00007f69de1565a7 in start_thread () from /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libpthread.so.0
+#18 0x00007f69ddc7722f in clone () from /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libc.so.6
+
+Thread 3 (Thread 0x7f69dcffe700 (LWP 11770)):
+#0  0x00007f69de15c592 in pthread_cond_wait@@GLIBC_2.3.2 () from /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libpthread.so.0
+#1  0x000055b4e84c3028 in parking_lot_core::thread_parker::ThreadParker::park (self=<optimized out>)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/thread_parker/unix.rs:95
+#2  parking_lot_core::parking_lot::park_internal (key=<optimized out>, validate=..., before_sleep=&mut FnMut<()> = {...}, timed_out=&mut FnMut<(usize, bool)> = {...}, park_token=ParkToken = {...}, 
+    timeout=Python Exception <type 'exceptions.TypeError'> Could not convert Python object: None.: 
+...) at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/parking_lot.rs:597
+#3  0x000055b4e84c1af0 in parking_lot_core::parking_lot::park (key=140092656051564, validate=..., timed_out=..., park_token=ParkToken = {...}, before_sleep=..., timeout=...)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/parking_lot.rs:542
+#4  parking_lot::raw_rwlock::RawRwLock::lock_exclusive_slow (self=<optimized out>, timeout=...) at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot-0.6.4/src/raw_rwlock.rs:634
+#5  0x000055b4e84bfa93 in <parking_lot::raw_rwlock::RawRwLock as lock_api::rwlock::RawRwLock>::lock_exclusive (self=<optimized out>)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot-0.6.4/src/raw_rwlock.rs:59
+#6  <lock_api::rwlock::RwLock<R, T>>::write (self=0x7f69de15c5a2 <pthread_cond_wait@@GLIBC_2.3.2+290>) at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/lock_api-0.1.4/src/rwlock.rs:326
+#7  pl_bug::main::{{closure}} () at src/main.rs:22
+#8  std::sys_common::backtrace::__rust_begin_short_backtrace (f=...) at libstd/sys_common/backtrace.rs:136
+#9  0x000055b4e84e323a in __rust_maybe_catch_panic () at libpanic_unwind/lib.rs:102
+#10 0x000055b4e84c08bc in std::panicking::try (f=...) at libstd/panicking.rs:289
+#11 std::panic::catch_unwind (f=...) at libstd/panic.rs:392
+#12 std::thread::Builder::spawn::{{closure}} () at libstd/thread/mod.rs:408
+#13 <F as alloc::boxed::FnBox<A>>::call_box (self=0x7f69dd2200a0, args=<optimized out>) at liballoc/boxed.rs:672
+#14 0x000055b4e84d12ae in _$LT$alloc..boxed..Box$LT$$LP$dyn$u20$alloc..boxed..FnBox$LT$A$C$$u20$Output$u3d$R$GT$$u20$$u2b$$u20$$u27$a$RP$$GT$$u20$as$u20$core..ops..function..FnOnce$LT$A$GT$$GT$::call_once::h9d902c911a417e39 () at liballoc/boxed.rs:682
+#15 std::sys_common::thread::start_thread () at libstd/sys_common/thread.rs:24
+#16 0x000055b4e84c99b6 in std::sys::unix::thread::Thread::new::thread_start () at libstd/sys/unix/thread.rs:90
+#17 0x00007f69de1565a7 in start_thread () from /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libpthread.so.0
+#18 0x00007f69ddc7722f in clone () from /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libc.so.6
+
+Thread 2 (Thread 0x7f69dd1ff700 (LWP 11769)):
+#0  0x00007f69de15c592 in pthread_cond_wait@@GLIBC_2.3.2 () from /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libpthread.so.0
+#1  0x000055b4e84c3028 in parking_lot_core::thread_parker::ThreadParker::park (self=<optimized out>)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/thread_parker/unix.rs:95
+#2  parking_lot_core::parking_lot::park_internal (key=<optimized out>, validate=..., before_sleep=&mut FnMut<()> = {...}, timed_out=&mut FnMut<(usize, bool)> = {...}, park_token=ParkToken = {...}, 
+    timeout=Python Exception <type 'exceptions.TypeError'> Could not convert Python object: None.: 
+...) at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/parking_lot.rs:597
+#3  0x000055b4e84c216f in parking_lot_core::parking_lot::park (validate=..., timed_out=..., park_token=ParkToken = {...}, key=<optimized out>, before_sleep=..., timeout=...)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot_core-0.3.1/src/parking_lot.rs:542
+#4  parking_lot::raw_rwlock::RawRwLock::lock_upgradable_slow (self=<optimized out>, timeout=core::option::None)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot-0.6.4/src/raw_rwlock.rs:1108
+#5  0x000055b4e84bf9f5 in <parking_lot::raw_rwlock::RawRwLock as lock_api::rwlock::RawRwLockUpgrade>::lock_upgradable (self=<optimized out>)
+    at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/parking_lot-0.6.4/src/raw_rwlock.rs:345
+#6  <lock_api::rwlock::RwLock<R, T>>::upgradable_read (self=<optimized out>) at /home/matklad/.cargo/registry/src/github.com-1ecc6299db9ec823/lock_api-0.1.4/src/rwlock.rs:596
+#7  pl_bug::main::{{closure}} () at src/main.rs:16
+#8  std::sys_common::backtrace::__rust_begin_short_backtrace (f=...) at libstd/sys_common/backtrace.rs:136
+#9  0x000055b4e84e323a in __rust_maybe_catch_panic () at libpanic_unwind/lib.rs:102
+#10 0x000055b4e84c08bc in std::panicking::try (f=...) at libstd/panicking.rs:289
+#11 std::panic::catch_unwind (f=...) at libstd/panic.rs:392
+#12 std::thread::Builder::spawn::{{closure}} () at libstd/thread/mod.rs:408
+#13 <F as alloc::boxed::FnBox<A>>::call_box (self=0x7f69dd220040, args=<optimized out>) at liballoc/boxed.rs:672
+#14 0x000055b4e84d12ae in _$LT$alloc..boxed..Box$LT$$LP$dyn$u20$alloc..boxed..FnBox$LT$A$C$$u20$Output$u3d$R$GT$$u20$$u2b$$u20$$u27$a$RP$$GT$$u20$as$u20$core..ops..function..FnOnce$LT$A$GT$$GT$::call_once::h9d902c911a417e39 () at liballoc/boxed.rs:682
+#15 std::sys_common::thread::start_thread () at libstd/sys_common/thread.rs:24
+#16 0x000055b4e84c99b6 in std::sys::unix::thread::Thread::new::thread_start () at libstd/sys/unix/thread.rs:90
+#17 0x00007f69de1565a7 in start_thread () from /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libpthread.so.0
+#18 0x00007f69ddc7722f in clone () from /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libc.so.6
+
+Thread 1 (Thread 0x7f69de997900 (LWP 11712)):
+#0  0x00007f69de15798d in __pthread_timedjoin_ex () from /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libpthread.so.0
+#1  0x000055b4e84c99ed in std::sys::unix::thread::Thread::join () at libstd/sys/unix/thread.rs:177
+#2  0x000055b4e84c04f8 in <std::thread::JoinInner<T>>::join (self=0x7ffed5ec89b0) at libstd/thread/mod.rs:1223
+#3  <std::thread::JoinHandle<T>>::join (self=JoinHandle<()> = {...}) at libstd/thread/mod.rs:1356
+#4  0x000055b4e84c0e91 in pl_bug::main::{{closure}} (it=...) at src/main.rs:35
+#5  core::iter::iterator::Iterator::for_each::{{closure}} (item=...) at libcore/iter/iterator.rs:614
+#6  core::iter::iterator::Iterator::fold::{{closure}} (acc=<optimized out>, x=...) at libcore/iter/iterator.rs:1695
+#7  core::iter::iterator::Iterator::try_fold (self=<optimized out>, init=<optimized out>, f=...) at libcore/iter/iterator.rs:1583
+#8  core::iter::iterator::Iterator::fold (self=..., init=<optimized out>, f=...) at libcore/iter/iterator.rs:1695
+#9  core::iter::iterator::Iterator::for_each (self=..., f=...) at libcore/iter/iterator.rs:614
+#10 pl_bug::main () at src/main.rs:35
+quit
+Detaching from program: /home/matklad/projects/parking-lot-deadlock/target/release/pl-bug, process 11712
